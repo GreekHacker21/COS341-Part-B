@@ -22,10 +22,20 @@ public class Main {
         if (result.value.equals("LEXICAL ERROR") || result.value.equals("File not found.")) {
             return;
         }
-        lex.printTokens();
+        // lex.printTokens();
         Parser parser = new Parser(result, fileName);
         parser.parse();
+        Node root = parser.syntaxTree();
+        printTree(root, "", true);
+    }
 
+    public static void printTree(Node n, String indent, boolean last) {
+        System.out.println(indent + "+- " + n.value);
+        indent += last ? "   " : "|  ";
+
+        for (int i = 0; i < n.children.size(); i++) {
+            printTree(n.children.get(i), indent, i == n.children.size() - 1);
+        }
     }
 
     public static String fileChoice() {

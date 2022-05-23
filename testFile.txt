@@ -1,0 +1,46 @@
+proc maint {
+    proc inner1proc { return ; } ,
+    return ;
+} , 
+proc inner2proc {
+    proc innerinner {
+        call inner1proc ; 
+        return ; 
+    } , 
+    call innerinner ; 
+    if ( "SS" ) then {
+        if ( 34 ) then {
+            if (true )
+            then {
+                do {
+                    call inner1proc ;
+                }
+                until (false) ; 
+            } ;
+        } 
+        else{
+            if (false) then {
+
+            } ;
+        } ;
+    } ;
+    while (xx) do {
+        ud := hi[10] ;
+    } ; return ;
+}  , main {
+    we := we ;
+    we := we2self ;
+    if (input(ef)) then {
+        output := "PRINT" ;
+     } ;
+     if (not(false)) then { 
+         do {
+             re := larger(23,true) ;
+         } until ( mult (false,true )) ;
+     } 
+     else { 
+         output := or ("1","0") ;
+     } ;
+        halt ; 
+        num hello; bool okay;
+    }
