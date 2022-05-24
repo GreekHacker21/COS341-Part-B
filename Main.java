@@ -26,7 +26,17 @@ public class Main {
         Parser parser = new Parser(result, fileName);
         parser.parse();
         Node root = parser.syntaxTree();
-        printTree(root, "", true);
+        //printTree(root, "", true);
+        //parentTest(root.children.get(0));
+        Scope scope = new Scope(root);
+        root = scope.run();
+        printTreeWithScope(root, "", true);
+    }
+
+    public static void parentTest(Node n){
+        System.out.println("Parent Test:");
+        Node child = n.children.get(0);
+        System.out.println(child.parent.id);
     }
 
     public static void printTree(Node n, String indent, boolean last) {
@@ -35,6 +45,15 @@ public class Main {
 
         for (int i = 0; i < n.children.size(); i++) {
             printTree(n.children.get(i), indent, i == n.children.size() - 1);
+        }
+    }
+
+    public static void printTreeWithScope(Node n, String indent, boolean last) {
+        System.out.println(indent + "+- " + n.value + " scope: " + n.scopeID);
+        indent += last ? "   " : "|  ";
+
+        for (int i = 0; i < n.children.size(); i++) {
+            printTreeWithScope(n.children.get(i), indent, i == n.children.size() - 1);
         }
     }
 

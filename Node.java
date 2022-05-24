@@ -7,6 +7,8 @@ public class Node {
     public String value;
     public String type;
     public LinkedList<Node> children;
+    public Node parent;
+    public int scopeID = -1;
 
     Node(String v){
         id = counter++;
@@ -23,5 +25,18 @@ public class Node {
 
     public void addChild(Node c){
         children.add(c);
+        c.addParent(this);
+    }
+
+    public void addParent(Node p){
+        parent = p;
+    }
+
+    public void setScopeID(int sID){
+        scopeID = sID;
+    }
+
+    public int getScopeID(){
+        return scopeID;
     }
 }
