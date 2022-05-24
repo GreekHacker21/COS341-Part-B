@@ -1,11 +1,20 @@
+import java.util.LinkedList;
+
 public class Scope {
 
     public Node root;
     int scopeControl;
+    ScopeNode scopeInfo;
+    LinkedList<Integer> scopeIDs;
+    LinkedList<int[]> family;
 
     Scope(Node r){
         root = r;
         scopeControl = 0;
+        scopeInfo = new ScopeNode(0);
+        scopeIDs = new LinkedList<>();
+        scopeIDs.add(0);
+        family = new LinkedList<>();
     }
 
     public Node run(){
@@ -18,7 +27,7 @@ public class Scope {
         }
         //prior to main scoping
         for(int i = 0; i < mainIndex; i++){
-            scope(root.children.get(i),scopeControl);
+            scope(root.children.get(i),scopeControl, scopeInfo);
         }
         //main scoping
         for(int i = mainIndex; i < root.children.size(); i++){
@@ -28,14 +37,45 @@ public class Scope {
         return root;
     }
 
-    public void scope(Node n, int scope){
+    public ScopeNode scopeHierachy(){
+        /*
+        System.out.println("Family print:");
+        for(int i = 0; i < family.size(); i++){
+            System.out.println(family.get(i)[0] + " " + family.get(i)[1]);
+        }
+        */
+        for(int i = 0; i < family.size(); i++){
+            buildFamily(scopeInfo, family.get(i));
+        }
+        return scopeInfo;
+    }
+
+    public void scope(Node n, int scope, ScopeNode sN){
         if(n.value.equals("ProcDefs")){
             scope++;
             scopeControl++;
         }
         n.setScopeID(scope);
+        ScopeNode c = new ScopeNode(scope);
+        if(!scopeIDs.contains(scope)){
+            //System.out.println(sN.scopeID + " " + c.scopeID);
+            //sN.addChild(c);
+            scopeIDs.add(scope);
+            int[] collect = {sN.scopeID,c.scopeID};
+            family.add(collect);
+        }
         for (int i = 0; i < n.children.size(); i++) {
-            scope(n.children.get(i),scope);
+            scope(n.children.get(i),scope,c);
+        }
+    }
+
+    public void buildFamily(ScopeNode n,int[] arr) {
+        if(n.scopeID==arr[0]){
+            n.addChild(new ScopeNode(arr[1]));
+        }
+
+        for (int i = 0; i < n.children.size(); i++) {
+            buildFamily(n.children.get(i), arr);
         }
     }
 

@@ -30,13 +30,21 @@ public class Main {
         //parentTest(root.children.get(0));
         Scope scope = new Scope(root);
         root = scope.run();
+        System.out.println("Tree with scopes: ");
         printTreeWithScope(root, "", true);
+        ScopeNode scopeInfo = scope.scopeHierachy();
+        System.out.println("\nScope hierachy simplified: ");
+        printScopeHierachy(scopeInfo, "", true);
+
     }
 
-    public static void parentTest(Node n){
-        System.out.println("Parent Test:");
-        Node child = n.children.get(0);
-        System.out.println(child.parent.id);
+    public static void printScopeHierachy(ScopeNode n, String indent, boolean last) {
+        System.out.println(indent + "+- " + n.scopeID);
+        indent += last ? "   " : "|  ";
+
+        for (int i = 0; i < n.children.size(); i++) {
+            printScopeHierachy(n.children.get(i), indent, i == n.children.size() - 1);
+        }
     }
 
     public static void printTree(Node n, String indent, boolean last) {
