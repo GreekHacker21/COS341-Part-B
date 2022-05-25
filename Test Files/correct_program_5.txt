@@ -1,0 +1,17 @@
+main {
+    b := 5443535 ;
+    c := -5874 ;
+    st := "0000" ;
+    if (eq ( eq ( b , c ) , eq ( c , b ) ) ) then {
+        if ( eq ( b , add ( c , 1 ) ) ) then {
+            output := "HELLO" ;
+        }
+        else {
+            output := "CHELLO" ;
+        } ;
+    } ;
+    count := sub ( "HELLO" , b ) ;
+    halt ; 
+    num b ;
+    num c ;
+}

@@ -1,0 +1,19 @@
+proc pro1 {
+    hello := "HELLO" ;
+    output := hello ;
+    return ;
+    string hello ;
+} ,
+proc pro2 {
+    world := "WORLD" ;
+    output := world ;
+    return ;
+    string world ;
+} ,
+
+main {
+    call pro1 ;
+    call pro2 ;
+
+    halt ;
+}

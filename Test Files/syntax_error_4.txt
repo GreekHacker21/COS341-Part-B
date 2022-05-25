@@ -1,0 +1,9 @@
+proc a {
+    
+} ,
+
+main {
+    test := test ;
+
+    halt ;
+}

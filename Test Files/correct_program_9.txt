@@ -1,0 +1,28 @@
+proc dosomething {
+        n := 10 ;
+        n := mult ( n , n ) ;
+        i := 1 ;
+        while ( not ( and ( true , 1 ) ) ) do {
+            n := b[i] ;
+            b[i] := a[false] ;
+            a[9] := n ; 
+        } ;
+         
+        output := n ;
+        return ;
+        num n ;
+        num i ;
+        arr num[10] a ; 
+        arr num[10] b ; 
+} ,
+
+proc donothing {
+    return ;
+} , 
+
+main {
+    call dosomething ;
+    call donothing ;
+
+    halt ;
+}

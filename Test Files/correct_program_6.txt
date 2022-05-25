@@ -1,0 +1,22 @@
+proc square {
+        n := mult ( mult ( 1 , sub ( add ( n , 1 ) , 3 ) ) , n ) ;
+        output := n ;
+        return ;
+    } ,
+
+main {
+    n := 5 ;
+    call square ;
+
+    n := 10 ;
+
+    call square ; 
+
+    n := 20 ;
+
+    call square ;
+
+    halt ;
+
+    num n ;
+}

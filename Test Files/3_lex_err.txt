@@ -1,0 +1,10 @@
+main {
+correctstr := "THIS IS CORRECT" ;
+correctstr := "ALSO CORRECT" ;
+errorstr := "THIS IS LONGER THAN 15 CHARACTERS AND SHOULD NOT WORK" ;
+in := input ( in ) ;
+halt ;
+string correctstr ;
+string errorstr ;
+string in ;
+}

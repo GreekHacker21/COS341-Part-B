@@ -1,4 +1,5 @@
 import java.io.File;
+import java.util.LinkedList;
 import java.util.Scanner;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -14,6 +15,8 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
 public class Main {
+
+    public static LinkedList<Node> leafNodes;
 
     public static void main(String[] args) {
         String fileName = fileChoice();
@@ -35,7 +38,25 @@ public class Main {
         ScopeNode scopeInfo = scope.scopeHierachy();
         System.out.println("\nScope hierachy simplified: ");
         printScopeHierachy(scopeInfo, "", true);
+        leafNodes = new LinkedList<>();
+        leafNodes(root);
+        //printLeafNodes();
+        SemanticRules semanticRules = new SemanticRules(root, scopeInfo, leafNodes);
+        semanticRules.analysis();
 
+    }
+
+    public static void printLeafNodes(){
+        for(int i = 0; i < leafNodes.size(); i++){
+            System.out.println(leafNodes.get(i).value);
+        }
+    }
+
+    public static void leafNodes(Node n) {
+        leafNodes.add(n);
+        for (int i = 0; i < n.children.size(); i++) {
+            leafNodes(n.children.get(i));
+        }
     }
 
     public static void printScopeHierachy(ScopeNode n, String indent, boolean last) {
@@ -57,7 +78,7 @@ public class Main {
     }
 
     public static void printTreeWithScope(Node n, String indent, boolean last) {
-        System.out.println(indent + "+- " + n.value + " scope: " + n.scopeID);
+        System.out.println(indent + "+- " + n.value + " (scope: " + n.scopeID + ")");
         indent += last ? "   " : "|  ";
 
         for (int i = 0; i < n.children.size(); i++) {

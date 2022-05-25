@@ -1,0 +1,43 @@
+proc a {
+    proc b {
+        proc c {
+            proc i1 {
+                return ;
+            } ,
+            proc d {
+                return ;
+            } ,
+            return ;
+        } ,
+        
+        return ;
+    } ,
+
+    proc i2 {
+        return ;
+    } ,
+    
+    return ;
+} , 
+
+proc e {
+    proc f {
+        return ;
+    } ,
+    proc g {
+        return ;
+    } ,
+    return ;
+} ,
+
+proc h {
+    return ;
+} ,
+
+proc i3 {
+    return ;
+} ,
+main {
+
+    halt ;
+}

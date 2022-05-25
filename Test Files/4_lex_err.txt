@@ -1,0 +1,11 @@
+proc p {
+error := < ;
+output := "ERROR OCCURED" ;
+return ;
+num error ;
+} ,
+
+main {
+call p ;
+halt ;
+}

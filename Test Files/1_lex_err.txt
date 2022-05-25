@@ -1,0 +1,10 @@
+proc Assda {
+error := "HELLO WORLD" ;
+output := "HELLO WORLD" ;
+return ;
+} ,
+
+main {
+call Assda ;
+halt ;
+}

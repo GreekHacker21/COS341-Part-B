@@ -1,0 +1,19 @@
+main {
+    a := 1 ;
+    b := 2 ;
+    c := add ( a , b ) ;
+    d := 6 ;
+    if ( eq ( a , b ) ) then {
+        output := a ;
+    } else {
+        if ( eq ( c , d ) ) then {
+            output := d
+        }
+    } ;
+
+    halt ;
+    num a ;
+    num b ;
+    num c ;
+    num d ;
+}

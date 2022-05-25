@@ -1,0 +1,22 @@
+main {
+    n := 5 ;
+    proc app {
+        n := add ( n , n ) ;
+        output := n ;
+        return ;
+    } ,
+
+    call app ;
+
+    n := 10 ;
+
+    call app ; 
+
+    n := 20 ;
+
+    call app ;
+    
+    halt ;
+    
+    num n ;
+}

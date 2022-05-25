@@ -1,0 +1,11 @@
+main {
+output := "WITHOUT PAREN" ;
+i := 10 ;
+while larger ( i , 0 ) ) do {
+    array[i] := i ;
+    i := sub ( i , 1 ) ;
+}
+halt ;
+arr num[9] array ;
+num i ;
+}

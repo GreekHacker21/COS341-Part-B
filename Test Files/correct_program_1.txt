@@ -1,0 +1,21 @@
+proc hello {
+    proc world {
+        correctstr := " HELLO WORLD" ;
+        in := input ( in ) ;
+        return ;
+        string correctstr ;
+        string in ;
+    } ,
+    
+    return ;
+} ,
+main {
+    hello := input ( hello ) ;
+    if ( or ( eq ( hello , 0 ) , larger ( hello , 6 ) ) ) 
+    then {
+    output := "IS ZERO" ;
+    } ;
+    halt ; 
+    num hello ;
+    bool hat ;
+}

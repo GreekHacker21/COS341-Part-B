@@ -1,0 +1,21 @@
+main {
+i := 10 ;
+while ( not ( larger ( i , 0 ) ) ) do {
+    array[i] := i ;
+    i := sub ( i , 1 ) ;
+    while ( larger ( i , 0 ) ) do {
+        array[i] := 3 ;
+        i := sub ( i , 4 ) ;
+    } ;
+    count := 10 ;
+    do {
+        output := count;
+        count := sub ( count , 1 ) ;
+    }
+    until ( larger ( count , 0 ) ) ;
+} ;
+halt ;
+arr num["TWO"] array ;
+bool i ;
+num count ;
+}

@@ -1,0 +1,33 @@
+proc a {
+    proc b {
+        count := 10 ;
+        do {
+        output := count ;
+        count := sub ( count , 1 ) ;
+        }
+        until ( larger ( count , 3 ) ) ;
+        return ;
+        num count ;
+    } ,
+    proc c {
+        call b ;
+        varc := 132 ;
+        output := varc ;
+        return ;
+        num varc ;
+    } ,
+    proc d {
+        call c ;
+        output := -341 ;
+        return ;
+    } ,
+    call b ;
+    call c ;
+    call d ;
+
+    return ;
+} ,
+main {
+call a ;
+halt ;
+}

@@ -1,0 +1,21 @@
+proc firstproc {
+    x := 1 ;
+    y := 10 ;
+    do {
+        x := add ( x , 1 ) ;
+    }
+    until ( eq ( x , y ) ) ;
+
+    while ( 6 ) do {
+        output := "6" ;
+    } ;
+    return ;
+    num x ;
+    num y ;
+},
+
+main {
+    call firstproc ;
+
+    halt ;
+}

@@ -1,0 +1,7 @@
+proc {
+    this should not be reached
+} , 
+
+main {
+    this should not be  reached either
+}
