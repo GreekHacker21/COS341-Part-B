@@ -27,3 +27,12 @@ If both of these tests pass then the program will create an xml file with the sa
 
 ## Example:
 If the textfile name was "test.txt" then the outputted file will be "test.xml".
+
+# Part B Update:
+This program will no longer produce textfiles.
+
+## New Functionality
+The program will output semantic errors if the semantic rules have been violated.
+The program will print a syntax tree with the all the nodes (with their nodeID and scopeID).
+A hierachy of the scopeIDs will also be displayed.
+Lastly the Procedure and Variable symbol table will be displayed if there are no procedure or variable rule violations.

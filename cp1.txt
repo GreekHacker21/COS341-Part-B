@@ -1,18 +1,47 @@
 proc hello {
     proc world {
-        correctstr := " HELLO WORLD" ;
+        proc city {
+            proc town {
+                proc street{
+                    in := "HELLO";
+                    sheldon := "LEONARD";
+                    bazinga[0] := 0;
+                    call street;
+                    return;
+                },
+                call town;
+                return;
+                string in;
+            },
+            call city;
+            return ;
+        } ,
+        correct := " HELLO WORLD" ;
         in := input ( in ) ;
         return ;
-        string correctstr ;
+        string correct ;
+        string in ;
+        string sheldon;
+        arr num[5] bazinga;
+    } ,
+    proc star {
+        correct := " HELLO WORLD" ;
+        god := 21;
+        in := input ( in ) ;
+        return ;
+        string correct ;
         string in ;
     } ,
-    
     call world;
+    call star;
     return ;
+    num god;
 } ,
 main {
     call hello;
     hello := input ( hello ) ;
+    test[0] := 10;
+    hat := true;
     if ( or ( eq ( hello , 0 ) , larger ( hello , 6 ) ) ) 
     then {
     output := "IS ZERO" ;
@@ -20,4 +49,5 @@ main {
     halt ; 
     num hello ;
     bool hat ;
+    arr num[10] test;
 }

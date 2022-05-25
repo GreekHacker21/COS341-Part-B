@@ -42,7 +42,11 @@ public class Main {
         leafNodes(root);
         //printLeafNodes();
         SemanticRules semanticRules = new SemanticRules(root, scopeInfo, leafNodes);
-        semanticRules.analysis();
+        if(semanticRules.analysis()==1){
+            return;
+        }
+        semanticRules.displayProcTable();
+        semanticRules.displayVarTable();
 
     }
 
@@ -78,7 +82,7 @@ public class Main {
     }
 
     public static void printTreeWithScope(Node n, String indent, boolean last) {
-        System.out.println(indent + "+- " + n.value + " (scope: " + n.scopeID + ")");
+        System.out.println(indent + "+- " + n.value + " (nodeID: " + n.id + ", scope: " + n.scopeID + ")");
         indent += last ? "   " : "|  ";
 
         for (int i = 0; i < n.children.size(); i++) {

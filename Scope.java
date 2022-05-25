@@ -54,6 +54,7 @@ public class Scope {
         if(n.value.equals("ProcDefs")){
             scope++;
             scopeControl++;
+            scope = scopeControl;
         }
         n.setScopeID(scope);
         ScopeNode c = new ScopeNode(scope);
