@@ -1,3 +1,4 @@
+import java.util.LinkedList;
 import java.util.Stack;
 
 public class SymbolTable {
@@ -18,5 +19,21 @@ public class SymbolTable {
             }
         }
         return false;
+    }
+
+    public void displayTable(){
+        for(int i = 0; i < rows.size(); i++){
+            System.out.println(rows.elementAt(i).row());
+        }
+    }
+
+    public LinkedList<SymbolTableNode> requestType(String t){
+        LinkedList<SymbolTableNode> temp = new LinkedList<>();
+        for(int i = 0; i < rows.size(); i++){
+            if(rows.elementAt(i).type.equals(t)){
+                temp.add(rows.elementAt(i));
+            }
+        }
+        return temp;
     }
 }
