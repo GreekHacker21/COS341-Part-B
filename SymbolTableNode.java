@@ -55,7 +55,7 @@ public class SymbolTableNode {
                     + isArray + "\tLinkedToNodeID:\t" + varLinkNodeID;
         }
         return "nodeID:\t" + nodeID + "\tscopeID:\t" + scopeID + "\tvalue:\t" + value + "\tparentScopeID:\t"
-                + parentScopeID + "\ttype:\t" + type + "\t\tisDeclaration:\t" + isDeclaration + "\tisArray:\t" + isArray + "\tisUsed:\t" + isUsed;
+                + parentScopeID + "\ttype:\t" + type + "\tisDeclaration:\t" + isDeclaration + "\tisArray:\t" + isArray + "\tisUsed:\t" + isUsed;
     }
 
 }

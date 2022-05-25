@@ -343,7 +343,35 @@ public class SemanticRules {
     }
 
     public void TypeChecking() throws SemanticError {
-        
+        VariableTable.addTreeAsList(leafNodes);
+        VariableTable.setAllUDNTypesToU();
+        VariableTable.assignDefaultTypes();
+        VariableCheck(); //unfinished
+        ArrayCheck(); //unfinished
+    }
+
+    public void VariableCheck(){
+
+    }
+
+    public void ArrayCheck() throws SemanticError {
+        LinkedList<SymbolTableNode> arrays = VariableTable.getArrays();
+        for(int i = 0; i < arrays.size(); i++){
+            if(arrays.get(i).isDeclaration){
+
+            }else{
+
+            }
+        }
+    }
+
+    public Node getNodeByNodeID(int id){
+        for(int i = 0; i < leafNodes.size(); i++){
+            if(leafNodes.get(i).id==id){
+                return leafNodes.get(i);
+            }
+        }
+        return null;
     }
 
     public void ValueFlowAnalysis() throws SemanticError {

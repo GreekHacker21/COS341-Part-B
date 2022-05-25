@@ -3,9 +3,14 @@ import java.util.Stack;
 
 public class SymbolTable {
     Stack<SymbolTableNode> rows;
+    LinkedList<Node> leafNodes;
 
     SymbolTable() {
         rows = new Stack<>();
+    }
+
+    public void addTreeAsList(LinkedList<Node> lN) {
+        leafNodes = lN;
     }
 
     public void addRow(SymbolTableNode node) {
@@ -64,23 +69,67 @@ public class SymbolTable {
         return connections;
     }
 
-    public void connect(){
-        for(int i = 0; i < rows.size(); i++) {
-            for(int j = 0; j < rows.size(); j++) {
-                if(rows.elementAt(i).isDeclaration&&rows.elementAt(i).nodeID==rows.elementAt(j).varLinkNodeID){
+    public void connect() {
+        for (int i = 0; i < rows.size(); i++) {
+            for (int j = 0; j < rows.size(); j++) {
+                if (rows.elementAt(i).isDeclaration && rows.elementAt(i).nodeID == rows.elementAt(j).varLinkNodeID) {
                     rows.elementAt(i).isUsed = true;
                 }
             }
         }
     }
 
-    public LinkedList<SymbolTableNode> declarations(){
+    public LinkedList<SymbolTableNode> declarations() {
         LinkedList<SymbolTableNode> d = new LinkedList<>();
-        for(int i = 0; i < rows.size(); i++){
-            if(rows.elementAt(i).isDeclaration){
+        for (int i = 0; i < rows.size(); i++) {
+            if (rows.elementAt(i).isDeclaration) {
                 d.add(rows.elementAt(i));
             }
         }
         return d;
+    }
+
+    public LinkedList<SymbolTableNode> getArrays() {
+        LinkedList<SymbolTableNode> d = new LinkedList<>();
+        for (int i = 0; i < rows.size(); i++) {
+            if (rows.elementAt(i).isArray) {
+                d.add(rows.elementAt(i));
+            }
+        }
+        return d;
+    }
+
+    public LinkedList<SymbolTableNode> getVars() {
+        LinkedList<SymbolTableNode> d = new LinkedList<>();
+        for (int i = 0; i < rows.size(); i++) {
+            if (rows.elementAt(i).isArray) {
+                d.add(rows.elementAt(i));
+            }
+        }
+        return d;
+    }
+
+    public void setAllUDNTypesToU() {
+        for (int i = 0; i < rows.size(); i++) {
+            if (rows.elementAt(i).type.equals("userDefinedName")) {
+                rows.elementAt(i).type = "U";
+            }
+        }
+    }
+
+    public void assignDefaultTypes() {
+        for (int i = 0; i < rows.size(); i++) {
+            switch (rows.elementAt(i).type) {
+                case "string":
+                    rows.elementAt(i).type = "S";
+                    break;
+                case "num":
+                    rows.elementAt(i).type = "N";
+                    break;
+                case "bool":
+                    rows.elementAt(i).type = "B";
+                    break;
+            }
+        }
     }
 }
